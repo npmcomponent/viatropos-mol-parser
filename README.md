@@ -21,6 +21,10 @@ var mol = require('mol-parser');
 var glucose = mol(theStringBelow);
 ```
 
+for this molecule:
+
+[![http://www.chemicalbook.com/CAS/GIF/78-04-6.gif](http://www.chemicalbook.com/CAS/GIF/78-04-6.gif)](http://www.chemicalbook.com/CASEN_78-04-6.htm)
+
 input:
 
 ```mol
