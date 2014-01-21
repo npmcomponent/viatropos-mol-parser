@@ -1,0 +1,7 @@
+{
+  "name": "mol-parser",
+  "version": "0.0.1",
+  "main": "./index.js",
+  "keywords": ["mol", "parser", "biology", "bioinformatics", "chemistry"],
+  "author": "Lance Pollard <lancejpollard@gmail.com>"
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mol Parser</title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <script src="./build/build.js"></script>
+    <style>
+    html, body, canvas {
+      width: 100%;
+      height: 100%;
+    }
+    </style>
+    <canvas></canvas>
+    <script type="chemical/x-mdl-molfile">
+      1772-03-8.mol
+        ChemDraw06210908192D
+
+       12 11  0  0  0  0  0  0  0  0999 V2000
+         -1.8563   -0.3572    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
+         -1.0313   -0.3572    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+         -0.6187    0.3572    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+         -1.0313    1.0717    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
+          0.2062    0.3572    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+          0.6187    1.0717    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
+          0.6187   -0.3572    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+          0.2062   -1.0717    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
+          1.4437   -0.3572    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+          1.8563   -1.0717    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
+          1.8563    0.3572    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+          1.4437    1.0717    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
+        1  2  2  0      
+        2  3  1  0      
+        3  4  1  6      
+        3  5  1  0      
+        5  6  1  1      
+        5  7  1  0      
+        7  8  1  1      
+        7  9  1  0      
+        9 10  1  1      
+        9 11  1  0      
+       11 12  1  0      
+      M  END
+    </script>
+    <script>
+      var mol = require('mol-parser');
+      var str = document.querySelector('[chemical/x-mdl-molfile]').textContent;
+      var data = mol(str);
+      var canvas = document.querySelector('canvas');
+
+      function draw() {
+        var ctx = canvas.getContext('2d');
+
+        data.nodes.forEach(function(atom){
+          // XXX: should be using `shape('circle')` here.
+          var grd = ctx.createRadialGradient(100 + atom.x - 1, 100 + atom.y - 1, 0, 100 + atom.x, 100 + atom.y, 7);
+          grd.addColorStop(0, 'rgba(212, 99, 0, 0)');
+          grd.addColorStop(0.7, 'rgba(212, 99, 0, 0.8)');
+          ctx.fillStyle = grd;
+          ctx.beginPath();
+          ctx.arc(100 + atom.x, 100 + atom.y, 5, 0, Math.PI * 2, false);
+          ctx.fill();
+        });
+      }
+
+      draw();
+    </script>
+  </body>
+</html>
