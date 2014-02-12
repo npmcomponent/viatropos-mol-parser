@@ -2,7 +2,7 @@
   "name": "mol-parser",
   "repo": "viatropos/mol-parser",
   "description": "Mol Parser component",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "keywords": ["mol", "parser", "biology", "bioinformatics", "chemistry"],
   "author": "Lance Pollard <lancejpollard@gmail.com>",
   "development": {

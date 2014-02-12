@@ -30,7 +30,7 @@ function mol(str) {
   var nnodes = +lines[3].substr(0, 3);
   var nedges = +lines[3].substr(3, 3);
 
-  for (var i = 4; i < nnodes; ++i) {
+  for (var i = 4, n = 4 + nnodes; i < n; ++i) {
     var line = lines[i].trim().split(/\s+/);
 
     nodes.push({
@@ -41,7 +41,7 @@ function mol(str) {
     });
   }
 
-  for (var i = (4 + nnodes), n = (4 + nnodes + nedges); i < n; ++i) {
+  for (var i = 4 + nnodes, n = 4 + nnodes + nedges; i < n; ++i) {
     var line = lines[i].trim().split(/\s+/);
 
     edges.push({
