@@ -43,12 +43,33 @@ function mol(str) {
 
   for (var i = 4 + nnodes, n = 4 + nnodes + nedges; i < n; ++i) {
     var line = lines[i].trim().split(/\s+/);
+    var stereochemistry = +line[3];
+    var direction;
+    // http://c4.cabrillo.edu/404/ctfile.pdf
+    switch (stereochemistry) {
+      case 1:
+        direction = 'up';
+        break;
+      case 6:
+        direction = 'down';
+        break;
+      case 4:
+        direction = 'up or down';
+        break;
+      case 3:
+        direction = 'cis or trans double bond';
+        break;
+    }
 
-    edges.push({
+    var edge = {
       source: +line[0] - 1,
       target: +line[1] - 1,
       count: +line[2]
-    });
+    };
+
+    if (direction) edge.direction = direction;
+
+    edges.push(edge);
   }
 
   return data;
