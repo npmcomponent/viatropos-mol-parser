@@ -1,7 +1,14 @@
 {
-  "name": "mol-parser",
+  "name": "viatropos-mol-parser",
+  "description": "Mol Parser component",
   "version": "0.0.2",
-  "main": "./index.js",
-  "keywords": ["mol", "parser", "biology", "bioinformatics", "chemistry"],
-  "author": "Lance Pollard <lancejpollard@gmail.com>"
+  "keywords": [
+    "mol",
+    "parser",
+    "biology",
+    "bioinformatics",
+    "chemistry"
+  ],
+  "dependencies": {},
+  "license": "MIT"
 }
